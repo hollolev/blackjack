@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -17,11 +17,10 @@
 <body>
     <div class="card">
         <h1><img id="logo" src="kep/playing-cards.svg" alt="kep">BlackJack</h1>
-        <form action="jatek.html">
+        <form action="main.php" method="post">
             <div>
                 <h2>Adj meg egy összeget ($):</h2>
-                <?php $_SESSION["bank"] = '<input type="number">'; ?>
-                
+                <input type="number" name="kezdoertek" id="bank">
             </div>
             <button id="start" type="submit">START</button>
         </form>

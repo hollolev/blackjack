@@ -18,11 +18,11 @@
     <div class="container">
         <h2>Osztó</h2>
         <div class="dealer-cards">
-            <div class="card-dealer" id="cardplayer1id" onclick="myFunction()">
+            <div class="card-dealer" style="background-color: darkgray"; id="cardplayer1id" onclick="myFunction()">
                 <p class="number" id="kartya1"></p>
             </div>
 
-            <div class="card-dealer" id="cardplayer2id" onclick="myFunction2()">
+            <div class="card-dealer" style="background-color: darkgray;" id="cardplayer2id" onclick="myFunction2()">
                 <p class="number" id="kartya2"></p>
             </div>
         </div>
@@ -62,10 +62,10 @@
         function myFunction() {
             if (clicked1) return;
             clicked1 = true;
-            const randomSzam = Math.floor(Math.random() * 10) + 2;
-            document.getElementById("cardplayer1id").style.backgroundColor = "lightgray";
+            const randomSzam1 = Math.floor(Math.random() * 10) + 2;
+            document.getElementById("cardplayer1id").style.backgroundColor = "white";
             const elem = document.getElementById("kartya1");
-            elem.innerHTML = randomSzam;
+            elem.innerHTML = randomSzam1;
         }
 
         let clicked2 = false;
@@ -73,10 +73,10 @@
         function myFunction2() {
             if (clicked2) return;
             clicked2 = true;
-            const randomSzam = Math.floor(Math.random() * 10) + 2;
-            document.getElementById("cardplayer2id").style.backgroundColor = "lightgray";
+            const randomSzam2 = Math.floor(Math.random() * 10) + 2;
+            document.getElementById("cardplayer2id").style.backgroundColor = "white";
             const elem = document.getElementById("kartya2");
-            elem.innerHTML = randomSzam;
+            elem.innerHTML = randomSzam2;
         }
     </script>
 

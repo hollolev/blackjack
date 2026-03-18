@@ -5,6 +5,9 @@ body {
 .container {
   display: grid;
 }
+.card-dealer{
+  cursor: pointer;
+}
 .dealer-cards,
 .player-cards {
   display: grid;
@@ -14,7 +17,7 @@ body {
 }
 .card-dealer,
 .card-player {
-  background-color: black;
+  background-color: white;
   width: 130px;
   height: 200px;
   border-radius: 20px;

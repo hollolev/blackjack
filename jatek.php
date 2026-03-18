@@ -18,16 +18,12 @@
     <div class="container">
         <h2>Osztó</h2>
         <div class="dealer-cards">
-            <div class="card-dealer">
-                <form action="">
-
-                </form>
+            <div class="card-dealer" id="cardplayer1id" onclick="myFunction()">
+                <p class="number" id="kartya1"></p>
             </div>
 
-            <div class="card-dealer">
-                <form action="">
-
-                </form>
+            <div class="card-dealer" id="cardplayer2id" onclick="myFunction2()">
+                <p class="number" id="kartya2"></p>
             </div>
         </div>
         <div class="bet">
@@ -36,8 +32,8 @@
                 <p style="margin-left: 30px;">Tét: $<?php echo $_SESSION['tet']; ?> </p>
             </div>
             <div class="bet-buttons">
-                <button class="bet-button">+</button>
-                <button class="bet-button">-</button>
+                <button class="bet-button" id="plus">+</button>
+                <button class="bet-button" id="minus">-</button>
             </div>
         </div>
 
@@ -45,23 +41,45 @@
         <div class="player-cards">
 
             <div class="card-player">
-                <form action="">
-                    
-                </form>
+                <p class="number"> <?php echo rand(2, 11); ?> </p>
             </div>
 
             <div class="card-player">
-                <form action="">
-
-                </form>
+                <p class="number"> <?php echo rand(2, 11); ?> </p>
             </div>
         </div>
 
         <button class="hit">Ütés</button>
 
-        <button class="stand">Tart</button>
-
+        <form method="post">
+            <button type="submit" class="stand" name="Button1">Tart</button>
+        </form>
     </div>
+
+    <script>
+        let clicked1 = false;
+
+        function myFunction() {
+            if (clicked1) return;
+            clicked1 = true;
+            const randomSzam = Math.floor(Math.random() * 10) + 2;
+            document.getElementById("cardplayer1id").style.backgroundColor = "lightgray";
+            const elem = document.getElementById("kartya1");
+            elem.innerHTML = randomSzam;
+        }
+
+        let clicked2 = false;
+
+        function myFunction2() {
+            if (clicked2) return;
+            clicked2 = true;
+            const randomSzam = Math.floor(Math.random() * 10) + 2;
+            document.getElementById("cardplayer2id").style.backgroundColor = "lightgray";
+            const elem = document.getElementById("kartya2");
+            elem.innerHTML = randomSzam;
+        }
+    </script>
+
 </body>
 
 </html>

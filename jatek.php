@@ -52,7 +52,7 @@
         <button class="hit">Ütés</button>
 
         <form method="post">
-            <button type="submit" class="stand" name="Button1">Tart</button>
+            <button class="stand">Tart</button>
         </form>
     </div>
 
@@ -77,6 +77,13 @@
             document.getElementById("cardplayer2id").style.backgroundColor = "white";
             const elem = document.getElementById("kartya2");
             elem.innerHTML = randomSzam2;
+        }
+
+        fetch("new.php")
+        .then( res => res.text() )
+        .then( dat => { main(dat); })
+        function main(x){
+            console.log(x);
         }
     </script>
 

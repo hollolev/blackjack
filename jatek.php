@@ -15,9 +15,10 @@
 </head>
 
 <body>
+    <button class="newgame" id="btnRefresh">Új játék</button>
     <div class="container">
         <h2>Osztó</h2>
-        <div class="dealer-cards">
+        <div class="dealer-cards" id="dealer_cards">
             <div class="card-dealer" id="cardplayer1id">
                 <p class="number" id="kartya1"></p>
             </div>
@@ -58,6 +59,14 @@
     </div>
 
     <script>
+        const refreshBtn = document.getElementById("btnRefresh");
+
+        function handleClick() {
+            window.location.reload();
+        }
+        refreshBtn.addEventListener("click", handleClick);
+
+
         function randomSzam() {
             const min = 2;
             const max = 11;
@@ -76,14 +85,52 @@
         }
 
         function vizsgalat() {
-            if (csekk("number") > csekk("playernumber") && csekk("playernumber") > !21 && csekk("number") > !21) {
+            const playerScore = csekk("playernumber");
+            const dealerScore = csekk("number");
+
+            console.log("Játékos pontszám:", playerScore);
+            console.log("Osztó pontszám:", dealerScore);
+
+            if (playerScore > 21) {
                 alert("Az Osztó nyert!");
-            } else if (csekk("playernumber") > csekk("number") && csekk("playernumber") > !21 && csekk("number") > !21) {
+                return;
+            }
+
+            if (dealerScore > 21) {
                 alert("A Játékos nyert!");
+                return;
+            }
+
+            if (playerScore > dealerScore) {
+                alert("A Játékos nyert!");
+            } else if (dealerScore > playerScore) {
+                alert("Az Osztó nyert!");
             } else {
                 alert("Döntetlen!");
             }
         }
+
+        function ujlap() {
+            setTimeout(() => {
+                const playerScore = csekk("playernumber");
+                const dealerScore = csekk("number");
+
+                if (playerScore <= 21 && dealerScore < 21 && playerScore >= dealerScore) {
+                    const div = document.createElement("div");
+                    const p = document.createElement("p");
+                    div.classList.add("card-dealer");
+                    p.classList.add("number");
+                    const random = randomSzam();
+                    p.textContent = random;
+
+                    document.getElementById("dealer_cards").appendChild(div);
+                    div.appendChild(p);
+                }
+
+            }, 1000);
+        }
+
+
 
         let clicked = false;
 
@@ -97,9 +144,11 @@
 
             csekk("number");
 
+            ujlap();
+
             setTimeout(() => {
                 vizsgalat();
-            }, 1000);
+            }, 2000);
         }
 
         function hit() {

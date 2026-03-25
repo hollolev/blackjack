@@ -26,8 +26,8 @@ function vizsgalat() {
   const playerScore = csekk("playernumber");
   const dealerScore = csekk("number");
 
-  console.log("Játékos pontszám:", playerScore);
-  console.log("Osztó pontszám:", dealerScore);
+  console.log("Játékos:", playerScore);
+  console.log("Osztó:", dealerScore);
 
   if (playerScore > 21) {
     alert("Az Osztó nyert!");

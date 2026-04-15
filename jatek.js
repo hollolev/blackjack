@@ -11,7 +11,7 @@ function randomSzam() {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function csekk(number) {
+function check(number) {
   const lista = document.getElementsByClassName(number);
   var x = 0;
   for (let index = 0; index < lista.length; index++) {
@@ -23,8 +23,8 @@ function csekk(number) {
 }
 
 function vizsgalat() {
-  const playerScore = csekk("playernumber");
-  const dealerScore = csekk("number");
+  const playerScore = check("playernumber");
+  const dealerScore = check("number");
 
   console.log("Játékos:", playerScore);
   console.log("Osztó:", dealerScore);
@@ -50,8 +50,8 @@ function vizsgalat() {
 
 function ujlap() {
   setTimeout(() => {
-    const playerScore = csekk("playernumber");
-    const dealerScore = csekk("number");
+    const playerScore = check("playernumber");
+    const dealerScore = check("number");
 
     if (playerScore <= 21 && dealerScore < 21 && playerScore >= dealerScore) {
       const div = document.createElement("div");
@@ -77,7 +77,7 @@ function stand() {
   const elem = document.getElementById("kartya2");
   elem.innerHTML = randomSzam2;
 
-  csekk("number");
+  check("number");
 
   ujlap();
 
@@ -98,7 +98,7 @@ function hit() {
   document.getElementById("player_cards").appendChild(div);
   div.appendChild(p);
 
-  const osszeg = csekk("playernumber");
+  const osszeg = check("playernumber");
 
   if (osszeg >= 21) {
     stand();
@@ -113,8 +113,8 @@ const elem3 = document.getElementById("kartya1");
 elem3.innerHTML = randomSzam();
 
 window.onload = () => {
-  csekk("number");
-  csekk("playernumber");
+  check("number");
+  check("playernumber");
 };
 
 // fetch("new.php")
